@@ -1,25 +1,18 @@
 import React from "react";
 import "./CheckoutProduct.css";
 
-const CheckoutProduct = () => {
+const CheckoutProduct = ({ id, title, image, price, rating }) => {
   return (
     <div className="checkoutProduct">
-      <img
-        className="checkoutProduct__image"
-        src="https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg"
-        alt=""
-      />
+      <img className="checkoutProduct__image" src={image} alt="" />
       <div className="checkoutProduct__info">
-        <p className="checkoutProduct__title">
-          The Lean Startup: How Constant Innovation Creates Radically Successful
-          Businesses Paperback
-        </p>
+        <p className="checkoutProduct__title">{title}</p>
         <p className="checkoutProduct__price">
           <small>$</small>
-          <strong>19.99</strong>
+          <strong>{price}</strong>
         </p>
         <div className="checkoutProduct__rating">
-          {Array(5)
+          {Array(rating)
             .fill()
             .map((_, i) => (
               <p key={i}>⭐</p>
