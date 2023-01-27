@@ -1,12 +1,17 @@
 import React from "react";
+import { getBasketTotal } from "../state_provider/reducer";
+import { useStateValue } from "../state_provider/StateProvider";
 import "./Subtotal.css";
 
 const Subtotal = () => {
+  const [{ basket }, dispatch] = useStateValue();
+
   return (
     <div className="subtotal">
       <h2>Subtotal</h2>
       <p>
-        Subtotal (0 items): <strong>$0.00</strong>
+        Subtotal ({basket?.length} items):{" "}
+        <strong>${getBasketTotal(basket)}</strong>
       </p>
       <small className="subtotal__gift">
         <input type="checkbox" /> This order contains a gift
